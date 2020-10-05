@@ -5,20 +5,12 @@
  */
 package civitas;
 
+
 /**
  *
  * @author carlos
  */
-public class Casilla {
+public class Sorpresa {
     
-    private String nombre;
-    
-    public Casilla(String n){
-        nombre = n;
-    }
-    
-    public String getNombre(){
-        return nombre;
-    }
     
 }
