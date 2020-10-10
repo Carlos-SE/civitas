@@ -37,7 +37,7 @@ public class Dado {
     
     int tirar(){
         if (!debug){
-            ultimoResultado = random.nextInt(numCaras-1) + 1;
+            ultimoResultado = random.nextInt(numCaras) + 1;
         }
         else{
             ultimoResultado = 1;

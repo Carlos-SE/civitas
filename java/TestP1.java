@@ -47,7 +47,7 @@ public class TestP1 {
         System.out.println("Tercero: "+resultados[2]);
         System.out.println("Cuarto: "+resultados[3]);
         
-        System.out.println("Último resultado="+dado.getUltimoResultado());
+        System.out.println("Último resultado = "+dado.getUltimoResultado());
         
        dado.setDebug(true);
         
@@ -71,7 +71,7 @@ public class TestP1 {
         
        dado.setDebug(false);        
         
-        System.out.println("Último resultado="+dado.getUltimoResultado());
+        System.out.println("Último resultado = "+dado.getUltimoResultado());
         
         String salgo = "NO";
         if (dado.salgoDeLaCarcel() == true){
