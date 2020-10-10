@@ -33,9 +33,10 @@ public class TestP1 {
         }
         
         int resultado;
+        Dado dado = Dado.getInstance();
         
         for (int i = 0; i < 100; i++){
-            resultado = Dado.getInstance().quienEmpieza(4);
+            resultado = dado.quienEmpieza(4);
             
             resultados[resultado]++;
         }
@@ -46,9 +47,9 @@ public class TestP1 {
         System.out.println("Tercero: "+resultados[2]);
         System.out.println("Cuarto: "+resultados[3]);
         
-        System.out.println("Último resultado="+Dado.getInstance().getUltimoResultado());
+        System.out.println("Último resultado="+dado.getUltimoResultado());
         
-        Dado.getInstance().setDebug(true);
+       dado.setDebug(true);
         
         resultados = new int[4];
         
@@ -57,7 +58,7 @@ public class TestP1 {
         }
                 
         for (int i = 0; i < 100; i++){
-            resultado = Dado.getInstance().quienEmpieza(4);
+            resultado = dado.quienEmpieza(4);
             
             resultados[resultado]++;
         }
@@ -68,12 +69,12 @@ public class TestP1 {
         System.out.println("Tercero: "+resultados[2]);
         System.out.println("Cuarto: "+resultados[3]);
         
-        Dado.getInstance().setDebug(false);        
+       dado.setDebug(false);        
         
-        System.out.println("Último resultado="+Dado.getInstance().getUltimoResultado());
+        System.out.println("Último resultado="+dado.getUltimoResultado());
         
         String salgo = "NO";
-        if (Dado.getInstance().salgoDeLaCarcel() == true){
+        if (dado.salgoDeLaCarcel() == true){
             salgo = "SÍ";
         }
         System.out.println("Salgo de la carcel: "+salgo);
@@ -108,7 +109,7 @@ public class TestP1 {
         
         
         int posicion, tirada;
-        tirada = Dado.getInstance().tirar();
+        tirada = dado.tirar();
         posicion = table.nuevaPosicion(0,tirada);
         System.out.println("Tirada = "+tirada);
         System.out.println("Nueva posicion = "+posicion);

@@ -19,7 +19,7 @@ public class Dado {
     
     private Random random;
     
-    private static int ultimoResultado;
+    private int ultimoResultado;
     private boolean debug;
     
     private static int SalidaCarcel = 5;
