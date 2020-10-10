@@ -19,7 +19,7 @@ public class Dado {
     
     private Random random;
     
-    private int UltimoResultado;
+    private static int ultimoResultado;
     private boolean debug;
     
     private static int SalidaCarcel = 5;
@@ -28,8 +28,8 @@ public class Dado {
     
     //Constructor
     private Dado(){
-        setDebug(false);
-        random = new Random();
+        debug = false;
+        random = new Random();       
         
     }
     
@@ -37,20 +37,20 @@ public class Dado {
     
     int tirar(){
         if (!debug){
-            UltimoResultado = random.nextInt(numCaras);
+            ultimoResultado = random.nextInt(numCaras-1) + 1;
         }
         else{
-            UltimoResultado = 1;
+            ultimoResultado = 1;
         }
         
-        return UltimoResultado;
+        return ultimoResultado;
     }
     
     
     boolean salgoDeLaCarcel(){
         boolean salir = false;
         
-        if (UltimoResultado >= 5){
+        if (ultimoResultado >= 5){
             salir = true;
         }
         
@@ -81,7 +81,11 @@ public class Dado {
     }
     
     int getUltimoResultado(){
-        return UltimoResultado;
+        return ultimoResultado;
     }
+    
+    public static Dado getInstance(){
+		return instance;
+	}
     
 }

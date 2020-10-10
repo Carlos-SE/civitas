@@ -35,7 +35,7 @@ public class MazoSorpresas {
         String evento;
         
         if(d){
-            evento = "Modo debug: activado";
+            evento = "Modo debug mazo sorpresas: activado";
             Diario.getInstance().ocurreEvento(evento);
         }
                         
@@ -70,8 +70,23 @@ public class MazoSorpresas {
     }
     
     
-    void inhabilitarCartaEspecial(Sorpresa sorpresa){
-        
+    public void inhabilitarCartaEspecial(Sorpresa sorpresa){
+        if(sorpresas.contains(sorpresa)){
+            sorpresas.remove(sorpresas.contains(sorpresa));
+            cartasEspeciales.add(sorpresa);            
+            
+            Diario.getInstance().ocurreEvento("Carta especial inhabilitada");
+        }
+    }
+    
+    
+    public void habilitarCartaEspecial(Sorpresa sorpresa){
+        if(cartasEspeciales.contains(sorpresa)){
+            cartasEspeciales.remove(sorpresa);            
+            sorpresas.add(sorpresa);
+            
+             Diario.getInstance().ocurreEvento("Carta especial habilitada");
+        }
     }
     
 }
