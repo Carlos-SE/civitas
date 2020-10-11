@@ -26,6 +26,8 @@ public class TestP1 {
     
     public static void main(String [] args){
         
+        
+        //Pruebas de la clase Dado
         int resultados[];
         resultados = new int[4];
         for (int i = 0; i < 4; i++){
@@ -80,7 +82,7 @@ public class TestP1 {
         System.out.println("Salgo de la carcel: "+salgo);
         
         
-        
+        //Pruebas de la clase Mazo
         MazoSorpresas mazo;
         mazo = new MazoSorpresas();
         Sorpresa s1, s2, s3;
@@ -94,6 +96,8 @@ public class TestP1 {
         mazo.inhabilitarCartaEspecial(s2);
         mazo.habilitarCartaEspecial(s2);
         
+        
+        //Pruebas del tablero
         Tablero table;
         table = new Tablero(2);
         table.añadeJuez();
@@ -107,12 +111,20 @@ public class TestP1 {
         table.añadeCasilla(c2);
         table.añadeCasilla(c3);
         
-        
         int posicion, tirada;
         tirada = dado.tirar();
         posicion = table.nuevaPosicion(0,tirada);
         System.out.println("Tirada = "+tirada);
         System.out.println("Nueva posicion = "+posicion);
+        
+        //Probar la clase Diario
+        Diario.getInstance().leerEvento();
+        Diario.getInstance().eventosPendientes();
+        
+        
+        
+        //Probar los ENUM
+        System.out.println(TipoCasillas.CALLE);
         
 
     }

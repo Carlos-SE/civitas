@@ -15,7 +15,7 @@ import civitas.Diario;
  */
 public class Dado {
     
-    static final private Dado instance = new Dado();
+    static private Dado instance = new Dado();
     
     private Random random;
     
@@ -29,7 +29,8 @@ public class Dado {
     //Constructor
     private Dado(){
         debug = false;
-        random = new Random();       
+        random = new Random();
+        ultimoResultado = 0;
         
     }
     
@@ -49,8 +50,8 @@ public class Dado {
     
     boolean salgoDeLaCarcel(){
         boolean salir = false;
-        
-        if (ultimoResultado >= 5){
+        int resultado = tirar();
+        if (resultado >= 5){
             salir = true;
         }
         
