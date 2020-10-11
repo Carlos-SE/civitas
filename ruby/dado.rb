@@ -1,64 +1,58 @@
-# encoding:utf-8
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-class Dado
-  
-  @@salidaCarcel = 5
-  @@numCaras = 6
-  
-  def initialize
-    
-    @debug = false
-    @ultimoResultado = 0
-    @random = Random.new
+
+module Civitas
+  class Dado
+    attr_reader :random , :ultimo_resultado
+    attr_writer :debug
     
     
-  end
-  
-  @@instance = Dado.new
-  
-  def tirar()
+    @num_caras=6
     
-    resultado = 1
-    if(!@debug)
-      resultado = @random.rand(@@numCaras+1)
+    def initialize
+       @debug = false
+       @ultimo_resultado=0
+       @random = Random.new
     end
     
-    @ultimoResultado = resultado
-    return @ultimoResultado
+    @@instance = Dado.new
     
-  end
-  
-  
-  def salgoDeLaCarcel()
-    salgo = false
-    
-    if(tirar() >= @@salidaCarcel)
-      salgo = true
+    def tirar()
+      resultado = 1
+      if(!@debug)
+        resultado = @random.rand(6) + 1
+      end
+      @ultimo_resultado =resultado
+      return @ultimo_resultado
     end
     
-    return true
-  end
+    def salir_de_la_carcel()
+      
+      if(tirar() >= 5)
+        return true
+      else
+        return false
+      end
   
-  
-  def quienEmpieza(n)
-    return @random.rand(n)
-  end
-  
-  
-  def setDebug(d)
-    String modo = "desactivado";
-    if(d == true)
-      modo = "Activado"
     end
-    Diario.instance.ocurre_evento("Modo debug: #{modo}")
-    @debug = d
-  end
+    
+    def quien_empieza(n)
+      return @random.rand(n)
+    end
   
-  def getUltimoResultado()
-    return @ultimoResultado
+    def set_debug(d)
+      String modo = "desactivado";
+      if(d == true)
+        modo = "Activado"
+      end
+      Diario.instance.ocurre_evento("Modo debug: #{modo}")
+      @debug = d
+    end
+    
+    def get_ultimo_resultado()
+      return @ultimo_resultado
+    end
   end
-  
 end

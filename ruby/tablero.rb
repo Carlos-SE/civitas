@@ -1,117 +1,100 @@
-# encoding:utf-8
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
-encoding:utf-8
-
-
 module Civitas
   
   require_relative "casilla"
   
   class Tablero
-    attr_reader :numCasillaCarcel , :porSalida , :casillas , :tieneJuez
     
-    def initialize(numCasillaCarcel)
-      #atributos de instacia declarados aquí
-      
-      if numCasillaCarcel >= 1
-        @numCasillaCarcel = numCasillaCarcel
-      else
-        @numCasillaCarcel = 1
-      end
-      
-      @casillas = Array.new 
-      @porSalida = 0
-      @tieneJuez = true
-      
+    attr_reader :num_casillas_carcel, :casillas, :por_salida, :tiene_juez
+    def initialize(num_casilla_carcel)
+        if (num_casilla_carcel >= 1)
+          @num_casillas_carcel = num_casilla_carcel
+        else
+          @num_casillas_carcel = 1
+        end
+        
+        @casillas= Array.new
+        @casillas<<@casillas.push("salida")
+        @por_salida = 0
+        @tiene_juez = false
+        
     end
     
-    def correcto()
-      return(@casillas.size() > @numCasillaCarcel && @tieneJuez);
+    def correct()
+      return(@casillas.size()>@num_casillas_carcel && @tiene_juez)
     end
     
-    def correcto(numCasilla) 
-      return(correcto() && @casillas.size() > numCasilla);
+    def correcto(num_casilla)
+      return(correct() && @casillas.size()>num_casilla)
     end
     
     def get_carcel()
-      return @numCasillaCarcel
+      return @num_casillas_carcel
     end
     
     def get_por_salida()
-
-      if @porSalida > 0 then 
-        @porSalida -= 1
-        return @porSalida
+      if (@por_salida>0)
+        @por_salida -= 1
+        return @por_salida
       else
-        return @porSalida
+        return @por_salida
       end
-   
     end
     
+    def aniadir_casilla(casilla)
+      if (@casillas.size() == @num_casillas_carcel)
+        @casillas << casilla.push("carcel")
+      end
+      @casillas << casilla 
     
-    def aniade_casilla(casilla)
-      
-      if (@casillas.size == @numCasillaCarcel)
-        @casillas << casilla.push("Carcel")
+      if(@casillas.size() == @num_casillas_carcel)
+        @casillas << casilla.push("carcel")
       end
-      
-      @casillas << casilla
-      
-      if (@casillas.size == @numCasillaCarcel)
-        @casillas << casilla.push("Cárcel")
-      end
-      
+     
     end
     
     def aniade_juez()
-      if(!@tieneJuez)
-        aniade_casilla(casilla.push("Juez"))
-        @tieneJuez = true
+      unless(@tiene_juez)
+        aniadir_casilla(@casillas.push("juez"))
+        @tiene_juez = true
       end
     end
     
-    
-    def get_casilla(num_casilla)
-      
-      if(correcto(num_casilla))
-        return @casillas[num_casilla]
+    def get_casilla(num)
+      if(correcto(num))
+        return @casillas[num]
       else
         return null
       end
     end
     
     def nueva_posicion(actual , tirada)
-      unless(correcto())
-        nueva = -1  
+      unless(correcto()) 
+        posicion = -1
       else
-        nueva = (tirada + actual) 
-        
-        if(nueva >= @casillas.size())
-
-          nueva %= @casillas.size()
-          @porSalida  = @porSalida + 1
-
+        posicion=(tirada+actual)
+        if(posicion>= @casillas.size())
+          posicion %= @casillas.size()
+          @por_salida = @por_salida + 1
         end
       end
-      
-      return nueva
-      
+     return posicion
     end
     
-    
-    def calcular_tirada(origen , destino) 
+    def calcular_tirada(origen,destino)
+      tirada = destino-origen
       
-      tirada = destino - origen
-      
-      if (tirada <0)
-        tirada += @casillas.length
+      if(tirada<0)
+        tirada = tirada + @casillas.lenght()
       end
-      
-      return tirada      
+      return tirada
     end
     
+      
   end
+  
+  
 end
 
