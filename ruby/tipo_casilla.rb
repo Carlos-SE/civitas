@@ -5,7 +5,7 @@
 
 
 module Civitas
-  module Tipo_casilla
+  module TipoCasilla
     CALLE = :calle
     SORPRESA = :sorpresa
     JUEZ = :juez

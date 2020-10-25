@@ -2,6 +2,13 @@ require 'singleton'
 module Civitas
   class Diario
     include Singleton
+    
+    @@instance = Dado.new
+    
+    def self.get_instance
+      return @@instance
+    end
+    
     def initialize
       @eventos = []
     end

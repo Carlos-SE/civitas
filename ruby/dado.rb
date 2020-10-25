@@ -28,6 +28,10 @@ module Civitas
       return @ultimo_resultado
     end
     
+    def self.get_instance
+      return @@instance
+    end
+    
     def salir_de_la_carcel()
       
       if(tirar() >= 5)

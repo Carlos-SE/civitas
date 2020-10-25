@@ -7,7 +7,7 @@ require_relative "sorpresa"
 require_relative "diario"
 
 module Civitas
-  class Mazo_sorpresa
+  class Mazo_sorpresas
     attr_reader :sorpresa, :usadas, :ultima_sorpresa
     
     
