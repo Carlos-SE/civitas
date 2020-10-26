@@ -21,25 +21,25 @@ module Civitas
     #CONSTRUCTORES
     
     def self.new_con_tablero(tipo, tablero)
-      return new(tipo, tablero, -1, nill, "")
+      return new(tipo, tablero, 0, nil, "")
     end
     
     def self.new_con_tablero_valor(tipo, tablero, valor)
-      return new(tipo, tablero, valor, nill, "")
+      return new(tipo, tablero, valor, nil, "")
     end
     
     def self.new_con_valor(tipo, valor)
-      return new(tipo, nill, valor, nill, "")
+      return new(tipo, nil, valor, nil, "")
     end
     
     def self.new_con_mazo(tipo, mazo)
-      return new(tipo, nill, -1, mazo, "")
+      return new(tipo, nil, 0, mazo, "")
     end
     
     def init()
-      @valor = -1
-      @mazo = nill
-      @tablero = nill
+      @valor = 0
+      @mazo = nil
+      @tablero = nil
     end
     
     def jugador_correcto(actual, todos)

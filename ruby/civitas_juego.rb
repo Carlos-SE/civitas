@@ -19,6 +19,8 @@ require_relative "casilla"
 module Civitas
   class CivitasJuego
     
+    attr_accessor :jugadores, :indice_jugador_actual
+    
     
     def initialize(jugadores)
       @jugadores = Array.new
@@ -75,7 +77,7 @@ module Civitas
       return @jugadores[@indice_jugador_actual]
     end
     
-    def construir_cas(ip)
+    def construir_casa(ip)
       @jugadores[@indice_jugador_actual].construir_casa(ip)
     end
     
