@@ -89,4 +89,7 @@ public class MazoSorpresas {
         }
     }
     
+    Sorpresa getUltimaSorpresa(){
+        return sorpresas.get(sorpresas.size()-1);
+    }
 }

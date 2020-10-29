@@ -7,10 +7,6 @@ package civitas;
 
 import java.util.ArrayList;
 
-import civitas.TipoCasillas;
-import civitas.TipoSorpresa;
-import civitas.Casilla;
-
 /**
  *
  * @author carlos
@@ -119,5 +115,9 @@ public class Tablero {
         }
         
         return tirada;
+    }
+    
+    public int size(){
+        return casillas.size();
     }
 }
