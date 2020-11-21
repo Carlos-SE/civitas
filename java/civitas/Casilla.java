@@ -159,9 +159,9 @@ public class Casilla {
    
     @Override
     public String toString(){
-        String parametros = "Nombre :"+nombre+" importe: "+importe+" carcel "
-                +carcel+" titulo de propiedad: "+tituloPropiedad+" sorpresaa : "
-                +sorpresa+" mazo sosrpresa: "+mazoSorpresas;
+        String parametros = "Nombre :"+nombre+"\nImporte: "+importe+
+                "\nTítulo de propiedad: "+tituloPropiedad+"\nSorpresaa: "
+                +sorpresa+"\nMazo sosrpresa: "+mazoSorpresas+ "\n";
         return parametros;
     }
 }

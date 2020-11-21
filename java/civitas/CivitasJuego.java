@@ -161,6 +161,7 @@ public class CivitasJuego {
         int numCasilla = jugadorActual.getNumCasillaActual();
         Casilla casilla = tablero.getCasilla(numCasilla);
         TituloPropiedad titulo = casilla.getTituloPropiedad();
+        //añadir filtro para poder realizar la compra
         resultado = jugadorActual.comprar(titulo);
         
         return resultado;

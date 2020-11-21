@@ -106,7 +106,7 @@ class VistaTextual {
       lista.add("CANCELAR HIPOTECA");
       lista.add("CONSTRUIR CASA");
       lista.add("CONSTRUIR HOTEL");
-      lista.add("TERMIANR");
+      lista.add("TERMINAR");
       
       ArrayList<String> listapropiedades = new ArrayList<>();
        
@@ -146,6 +146,7 @@ class VistaTextual {
     }
   
   void actualizarVista(){
+      System.out.println("\n");
       System.out.println("JUGADOR: ");
       System.out.println(juegoModel.getJugadorActual().toString());
       System.out.println("CASILLA: ");

@@ -202,7 +202,7 @@ public class Jugador implements Comparable<Jugador> {
         
         if(!encarcelado){
             numCasillaActual = numCasilla;
-            puedeComprar = false;
+            puedeComprar = puedeComprarCasilla();
             Diario.getInstance().ocurreEvento("El "+nombre+" se mueve a la casilla "+numCasillaActual);
             puedeMover = true;
         }
@@ -418,7 +418,11 @@ public class Jugador implements Comparable<Jugador> {
     
     @Override
     public String toString(){
-        String parametros = "Nombre: "+nombre+" está encarcelado: "+encarcelado+". Puede realizar compras: "+puedeComprar+" está en la casilla: "+numCasillaActual;
+        String parametros = "Nombre: "+nombre+
+                "\nEstá encarcelado: "+encarcelado+
+                "\nSaldo: "+saldo+
+                "\nPuede comprar: "+puedeComprar+
+                "\nEstá en la casilla: "+numCasillaActual+"\n";
         return parametros;
     }
 
